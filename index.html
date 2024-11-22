@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="css/stylesheets/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script  src="js/script.js"></script>
     <link rel="icon" type="image/png" href="image/logo.png">
     <title>Binita - Personal Protfolio</title>
 </head>
@@ -19,25 +20,29 @@
 
     <main>
         <div class="position-relative">
-            <div class="theme-switch"><i class="bi-sun"></i></div>
-                <div class="tab-list d-flex flex-lg-column justify-content-center align-items-end gap-4 gap-md-2">
-                    <div class="tab active icon-box "><i class="bi-house"></i></div>
-                    <div class="tab icon-box"><i class="bi-person"></i></div>
-                    <div class="tab icon-box"><i class="bi-person-workspace"></i></div>
-                    <div class="tab icon-box"><i class="bi-chat"></i></div>
-                </div>
-            <div class="profile">
+            <div class="round-box theme-switch"><i class="bi-sun"></i></div>
+            <div class="tab-list d-flex flex-lg-column justify-content-center align-items-end gap-4 gap-lg-2">
+                <div class="round-box tab active"><i class="bi-house"></i></div>
+                <div class="round-box tab"><i class="bi-person"></i></div>
+                <div class="round-box tab"><i class="bi-person-workspace"></i></div>
+                <div class="round-box tab"><i class="bi-chat"></i></div>
+            </div>
+            <div class="main-section">
                 <div class="tab-content">
                     <div id="tab1" class="content p-2 position-relative">
                         <div class="color-block d-none d-lg-block"></div>
                         <div class="container">
                             <div class="row align-items-center justify-content-center">
-                                <div class="col-lg-5 banner-image-bg p-4">
-                                    <img src="images/girl.png" alt="Profile image" class="banner-image">
+                                <div class="col-lg-4 img-desktop-bg p-4 shadow d-none d-lg-block">
+                                    <img src="images/girl.png" alt="Profile image" class="w-100">
                                 </div>
-                                <div class="col-lg-7">
-                                    <div class="p-lg-4 d-flex flex-column align-items-center align-items-lg-start text-center text-lg-start">
-                                        <h1>I'm Binita Shrestha. <br> <span class="text-white">UI Developer</span></h1>
+                                <div class="col-lg-8 offset-lg-4 px-lg-4">
+                                    <div class=" img-mobile d-block d-lg-none text-center">
+                                        <img src="images/girl.png" alt="Profile image">
+                                    </div>
+                                    <div
+                                        class="p-lg-4 d-flex flex-column align-items-center align-items-lg-start text-center text-lg-start">
+                                        <h1 class="position-relative">I'm Binita Shrestha. <br> <span class="text-white">UI Developer</span></h1>
                                         <p class="text-white">I'm a Nepal based web designer &amp; front‑end developer
                                             focused on
                                             crafting clean &amp; user‑friendly experiences, I am passionate about
@@ -49,19 +54,138 @@
                                                 <i class="bi-arrow-right"></i>
                                             </div>
                                         </button>
-    
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="tab2" class="content p-2 d-none">
+                    <div id="tab2" class="content p-2">
                         dd
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <div class="cursor-dot-outline"></div>
+<div class="cursor-dot"></div>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    // Initialize the cursor object
+    var cursor = {
+        delay: 8,
+        _x: 0,
+        _y: 0,
+        endX: (window.innerWidth / 2),
+        endY: (window.innerHeight / 2),
+        cursorVisible: true,
+        cursorEnlarged: false,
+        $dot: document.querySelector('.cursor-dot'),
+        $outline: document.querySelector('.cursor-dot-outline'),
+        
+        init: function() {
+            this.setupEventListeners();
+            this.animateDotOutline();
+        },
+
+        updateCursor: function(e) {
+            this.cursorVisible = true;
+            this.toggleCursorVisibility();
+
+            this.endX = e.pageX;
+            this.endY = e.pageY;
+            this.$dot.style.top = `${this.endY}px`;
+            this.$dot.style.left = `${this.endX}px`;
+
+            this._x += (this.endX - this._x) / this.delay;
+            this._y += (this.endY - this._y) / this.delay;
+            this.$outline.style.top = `${this._y}px`;
+            this.$outline.style.left = `${this._x}px`;
+        },
+
+        setupEventListeners: function() {
+            var self = this;
+
+            document.querySelectorAll('a, .custom-btn').forEach(function(el) {
+                el.addEventListener('mouseover', function() {
+                    self.cursorEnlarged = true;
+                    self.toggleCursorSize();
+                });
+                el.addEventListener('mouseout', function() {
+                    self.cursorEnlarged = false;
+                    self.toggleCursorSize();
+                });
+            });
+
+            document.addEventListener('mousedown', function() {
+                self.cursorEnlarged = true;
+                self.toggleCursorSize();
+            });
+
+            document.addEventListener('mouseup', function() {
+                self.cursorEnlarged = false;
+                self.toggleCursorSize();
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                self.updateCursor(e);
+            });
+
+            document.addEventListener('mouseenter', function() {
+                self.cursorVisible = true;
+                self.toggleCursorVisibility();
+                self.$dot.style.opacity = 1;
+                self.$outline.style.opacity = 1;
+            });
+
+            document.addEventListener('mouseleave', function() {
+                self.cursorVisible = false;
+                self.toggleCursorVisibility();
+                self.$dot.style.opacity = 0;
+                self.$outline.style.opacity = 0;
+            });
+        },
+
+        animateDotOutline: function() {
+            var self = this;
+            self._x += (self.endX - self._x) / self.delay;
+            self._y += (self.endY - self._y) / self.delay;
+            self.$outline.style.top = `${self._y}px`;
+            self.$outline.style.left = `${self._x}px`;
+
+            requestAnimationFrame(this.animateDotOutline.bind(self));
+        },
+
+        toggleCursorSize: function() {
+            if (this.cursorEnlarged) {
+                this.$dot.classList.add('scale-up');
+                this.$outline.classList.add('scale-up');
+            } else {
+                this.$dot.classList.remove('scale-up');
+                this.$outline.classList.remove('scale-up');
+            }
+        },
+
+        toggleCursorVisibility: function() {
+            if (this.cursorVisible) {
+                this.$dot.style.opacity = 1;
+                this.$outline.style.opacity = 1;
+            } else {
+                this.$dot.style.opacity = 0;
+                this.$outline.style.opacity = 0;
+            }
+        }
+    };
+
+    cursor.init();
+});
+
+    
+</script>
+    
 
 
     <script>
@@ -71,16 +195,17 @@
 
             tabs.forEach((tab, index) => {
                 tab.addEventListener("click", () => {
-                    contents.forEach((c) => c.classList.add("d-none"));
+                    contents.forEach((c) => c.classList.remove("active"));
                     tabs.forEach((t) => t.classList.remove("active"));
-                    contents[index].classList.remove("d-none");
+                    contents[index].classList.add("active");
                     tab.classList.add("active");
                 });
             });
 
-            contents[0].classList.remove("d-none");
+            contents[0].classList.add("active");
             tabs[0].classList.add("active");
         });
+
     </script>
 
 </body>
