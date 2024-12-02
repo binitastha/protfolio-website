@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSun, FaMoon } from 'react-icons/fa'; // FontAwesome Sun and Moon icons
 
 function ThemeSwitch() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   // Apply the theme based on local storage or default to light theme
   useEffect(() => {
