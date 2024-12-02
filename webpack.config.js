@@ -63,6 +63,8 @@ module.exports = {
     },
     compress: true,
     port: 3000,
+    historyApiFallback: true, // This enables React Router to handle all navigation
+
   },
   resolve: {
     extensions: ['.js', '.jsx'],

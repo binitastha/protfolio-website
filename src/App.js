@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
-import TabList from './Tablist'; // Import TabList component
-import TabContent from './TabContent'; // Import TabContent component
-import ThemeSwitch from './ThemeSwitch'; // Import ThemeSwitch component
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
+import TabList from './components/Tablist';
+import ThemeSwitch from './components/ThemeSwitch';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('tab1');
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
   return (
-    <main>
-      <div className="position-relative">
-        <ThemeSwitch />
-        <TabList activeTab={activeTab} onTabClick={handleTabClick} />
-        <div className="main-section">
-          <TabContent activeTab={activeTab} />
+    <Router>
+      <main>
+        <div className="position-relative">
+          <ThemeSwitch />
+          <TabList />
+          <div>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </Router>
   );
 }
 
