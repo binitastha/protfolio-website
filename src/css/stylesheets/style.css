@@ -59,7 +59,7 @@ body {
   line-height: 1.4;
   outline: none !important;
   overflow: hidden;
-  padding: 14px 68px 14px 18px;
+  padding: 14px 54px 14px 18px;
   position: relative;
   text-align: center;
   text-decoration: none !important;
@@ -130,11 +130,11 @@ body {
 .light-theme .custom-btn {
   color: #111111;
 }
-.light-theme .img-mobile img {
-  border: 4px solid #f9f9f9;
-}
 .light-theme .tab-list {
   background-color: #f9f9f9;
+}
+.light-theme .img-mobile img {
+  border: 4px solid #f9f9f9;
 }
 
 .dark-theme {
@@ -144,11 +144,11 @@ body {
 .dark-theme .custom-btn {
   color: #fff;
 }
-.dark-theme .img-mobile img {
-  border: 4px solid #111111;
-}
 .dark-theme .designation {
   color: #fff;
+}
+.dark-theme .img-mobile img {
+  border: 4px solid #212529;
 }
 
 @media screen and (min-width: 996px) {

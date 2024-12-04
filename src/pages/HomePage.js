@@ -19,12 +19,7 @@ const HomePage = () => (
               <br /> <span className="designation">UI Developer</span>
             </h1>
             <p>
-              My name is Binita Shrestha, a dedicated web designer with a strong
-              passion for my craft. With 3 years of experience as a professional
-              web developer, I’ve honed the skills and expertise needed to
-              ensure the success of your projects. I truly enjoy each phase of
-              the design process, from initial discussions to collaboration and
-              execution.
+            Hi, I’m Binita Shrestha, a UI developer passionate about creating user-friendly interfaces. With 3 years of experience in web development, I’ve gained the skills needed to deliver successful projects. I enjoy every step of the process, from brainstorming and collaboration to executing the final product. Feel free to explore my work and get in touch!
             </p>
             <div class="w-100">
               <div class="about-client-box info-box">
