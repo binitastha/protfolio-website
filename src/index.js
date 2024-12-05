@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Note: import from 'react-dom/client' in React 18
 import App from './App';  // Correct path to App.js inside 'src' folder
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './css/stylesheets/style.css'; 
+
 
 
 
