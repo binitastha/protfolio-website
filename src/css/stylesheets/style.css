@@ -6,6 +6,10 @@
   --c-base-fs-desktop: 1.2rem;
 }
 
+* {
+  cursor: none !important;
+}
+
 /* Mixins */
 body {
   font-family: "Ysabeau", sans-serif;
