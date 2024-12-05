@@ -7,9 +7,9 @@
   --c-base-fs-desktop: 1.2rem;
 }
 
-* {
-  cursor: none !important;
-}
+// * {
+//   cursor: none !important;
+// }
 
 $primary-color: #ffb400;
 $secondary-color: #212529;
@@ -98,7 +98,6 @@ body {
   vertical-align: middle;
   white-space: nowrap;
   z-index: 1;
-
   .icon-box {
     align-items: center;
     border-radius: 50%;
@@ -145,6 +144,7 @@ body {
   cursor: pointer;
   color: $white;
   margin: 30px 0;
+  transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   &.theme-switch {
     position: absolute;
     top: 8%;
@@ -153,6 +153,7 @@ body {
   }
   &:hover{
     color: $white;
+    background-color: $primary-color;
   }
 }
 
@@ -271,39 +272,39 @@ body {
   }
 }
 
-.cursor-dot,
-.cursor-dot-outline {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  background-color: transparent;
-  transition: all 0.1s ease-out;
-  transform: translate(
-    -50%,
-    -50%
-  );
-}
+// .cursor-dot,
+// .cursor-dot-outline {
+//   position: absolute;
+//   pointer-events: none;
+//   border-radius: 50%;
+//   background-color: transparent;
+//   transition: all 0.1s ease-out;
+//   transform: translate(
+//     -50%,
+//     -50%
+//   );
+// }
 
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  z-index: 9999;
-  background-color: #ffb400;
-}
+// .cursor-dot {
+//   width: 8px;
+//   height: 8px;
+//   z-index: 9999;
+//   background-color: #ffb400;
+// }
 
-.cursor-dot-outline {
-  width: 40px;
-  height: 40px;
-  opacity: 0.5;
-  z-index: 9998;
-  border: 1px solid #ffb400;
-}
+// .cursor-dot-outline {
+//   width: 40px;
+//   height: 40px;
+//   opacity: 0.5;
+//   z-index: 9998;
+//   border: 1px solid #ffb400;
+// }
 
-.cursor-dot.scale-up {
-  transform: translate(-50%, -50%) scale(1.5);
-}
+// .cursor-dot.scale-up {
+//   transform: translate(-50%, -50%) scale(1.5);
+// }
 
-.cursor-dot-outline.scale-up {
-  transform: translate(-50%, -50%) scale(2);
-}
+// .cursor-dot-outline.scale-up {
+//   transform: translate(-50%, -50%) scale(2);
+// }
 
