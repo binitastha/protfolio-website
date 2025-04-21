@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ysabeau:wght@300;400;500;700&display=swap");
 
+
 :root {
   --c-base-fs: 1rem;
   --c-section-header-fs: 1.2rem;
@@ -98,21 +99,16 @@ body {
   vertical-align: middle;
   white-space: nowrap;
   z-index: 1;
-  .icon-box {
-    align-items: center;
-    border-radius: 50%;
-    bottom: 0;
-    color: #fff;
-    display: flex;
-    font-size: clamp(0.6rem, 2vw, 0.9rem);
-    height: 100%;
-    justify-content: center;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    padding: 16px;
-    background-color: $primary-color;
-  }
+  
+}
+
+.icon-box {
+
+  font-size: clamp(0.6rem, 2vw, 0.9rem);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 16px;
 }
 
 .img-mobile {
@@ -132,29 +128,6 @@ body {
   z-index: 99;
   background-color: $ex-dark;
   width: 100%;
-}
-
-.round-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $grey;
-  border-radius: 50%;
-  padding: 16px;
-  cursor: pointer;
-  color: $white;
-  margin: 30px 0;
-  transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  &.theme-switch {
-    position: absolute;
-    top: 8%;
-    right: 4%;
-    transform: translateY(-50%);
-  }
-  &:hover{
-    color: $white;
-    background-color: $primary-color;
-  }
 }
 
 
@@ -308,3 +281,41 @@ body {
 //   transform: translate(-50%, -50%) scale(2);
 // }
 
+
+
+
+.theme-switch {
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  transform: translateY(-50%);
+}
+
+
+
+
+@mixin button($bg-color, $text-color: #fff) {
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  margin-bottom: 20px;
+  &:hover {
+    // background-color: darken($bg-color, 10%);
+    background-color: $primary-color;
+  }
+}
+
+// Usage
+.button-warning {
+  @include button($primary-color);
+}
+
+.button-secondary {
+  @include button($grey);
+}

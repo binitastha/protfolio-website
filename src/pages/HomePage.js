@@ -42,7 +42,7 @@ const HomePage = () => (
               </div>
               <a className="custom-btn" href="/about">
                 <span className="text-uppercase">More about me</span>
-                <div className="icon-box my-0">
+                <div className="button-warning icon-box my-0">
                   <FaArrowRight size={14} />
                   
                 </div>

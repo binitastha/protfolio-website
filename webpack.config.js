@@ -40,6 +40,17 @@ module.exports = {
         include: path.resolve(__dirname, 'src/images'), // Ensure Webpack processes images inside src/images
         type: 'asset/resource', // Webpack will process images as assets and output them in dist/images
       },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,  // Handle font files
+        include: path.resolve(__dirname, 'src/fonts'),  // Ensure Webpack processes fonts inside src/fonts
+        type: 'asset/resource',  // Webpack will process fonts as assets
+        generator: {
+          filename: 'fonts/[name][hash][ext][query]',  // Output font files to the dist/fonts/ folder
+        },
+      }
+      
+      
+      
     ],
   },
   plugins: [

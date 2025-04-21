@@ -5,19 +5,19 @@ import { BsHouse, BsPerson, BsPersonWorkspace, BsChat } from 'react-icons/bs';
 function TabList() {
   return (
     <div className="tab-list d-flex flex-lg-column justify-content-center align-items-end gap-4 gap-lg-2">
-      <Link to="/" className="round-box">
+      <Link to="/" className="button-secondary">
         <BsHouse size={16} />
       </Link>
 
-      <Link to="/about" className="round-box">
+      <Link to="/about" className="button-secondary">
         <BsPerson size={16} />
       </Link>
 
-      <Link to="/projects" className="round-box">
+      <Link to="/projects" className="button-secondary">
         <BsPersonWorkspace size={16} />
       </Link>
 
-      <Link to="/contact" className="round-box">
+      <Link to="/contact" className="button-secondary">
         <BsChat size={16} />
       </Link>
     </div>
