@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         toggleCursorSize: function() {
-            if (this.cursorEnlarged) {
+            if (this.cursorEnlarged) { 
                 this.$dot.classList.add('scale-up');
                 this.$outline.classList.add('scale-up');
             } else {
